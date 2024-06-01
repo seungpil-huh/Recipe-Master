@@ -1,3 +1,7 @@
+#port setting
+server:
+  port: 1004
+
 #jsp setting
 spring:
   mvc:
