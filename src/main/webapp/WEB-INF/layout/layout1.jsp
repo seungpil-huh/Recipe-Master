@@ -19,56 +19,13 @@
 	href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap"
 	rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<style>
-body * {
-	font-family: 'Pretendard';
-}
-
-div.mainLayout>div{
-	border: none;
-	position: absolute;
-}
-div.mainLayout>div a{
-	text-decoration: none;
-	color: black;
-}
-div.mainLayout>div.header{
-width:100%;
-height:150px;
-font-size: 35px;
-text-align:center;
-}
-div.mainLayout>div.menu{
-	top:100px;
-	width:100%;
-	height: 70px;
-	line-height: 70px;
-	
-}
-div.mainLayout>div.info{
-	top:250px;
-	left:50px;
-	width:200px;
-	height:200px;
-	border: 2px solid gray;
-	border-radius: 20px;	
-}
-
-div.mainLayout>div.main{
-	top: 210px;
-	left:300px;
-	width:70%;
-	height:auto;
-}
-</style>
+	<script src="../js_css/recipeScript.js"></script>
+	<link rel="stylesheet" href="../js_css/css.css?after">
 </head>
 <body>
 	<div class="mainLayout">
 		<div class="header">
 			<tiles:insertAttribute name="header" />
-		</div>
-		<div class="menu">
-			<tiles:insertAttribute name="menu" />
 		</div>
 		<div class="info">
 			<tiles:insertAttribute name="info" />
