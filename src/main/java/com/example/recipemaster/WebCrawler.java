@@ -1,4 +1,4 @@
 package com.example.recipemaster;
 
-public class TestBoo {
+public class WebCrawler {
 }
