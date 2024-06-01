@@ -15,7 +15,7 @@ spring:
 
 #gangsa mysql db
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db-n8650-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://db-n9jl6-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: study
     password: bitcamp!@#123
 
