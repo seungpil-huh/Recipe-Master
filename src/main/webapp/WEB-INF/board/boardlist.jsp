@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: DONGWOOBAE
+  Date: 2024-06-01
+  Time: 오후 1:47
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -15,11 +22,15 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <style>
         body * {
-            font-family: 'Jua';
+            font-family: 'Pretendard';
         }
     </style>
 </head>
 <body>
-헤더
+<c:forEach items="${list}" var="dto" varStatus="n">
+    [${dto.RCP_NM}]<br>
+    <img src="${dto.ATT_FILE_NO_MAIN}">
+    <br>
+</c:forEach>
 </body>
 </html>
