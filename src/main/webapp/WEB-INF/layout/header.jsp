@@ -1,1 +1,0 @@
-<a><button type="button" onclick="location.href='/'">Recipe Master</button></a>
