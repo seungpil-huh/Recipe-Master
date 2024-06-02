@@ -10,12 +10,6 @@ spring:
       suffix: .jsp
   application:
     name: RecipeMaster
-  #elasticsearch setting
-  elasticsearch:
-    rest:
-      uris: http://localhost:9200
-    index:
-      prefix: recipe
   #mysql setting
   datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver

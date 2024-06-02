@@ -6,9 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
-@SpringBootApplication(scanBasePackages = {"cloud","com.example.*","data.*","controller.*","config","model","repository"})
+@SpringBootApplication(scanBasePackages = {"cloud","com.example.*","data.*","controller.*","config"})
 @MapperScan("data.mapper")
-@EnableElasticsearchRepositories(basePackages = "repository")
 public class RecipeMasterApplication {
 
     public static void main(String[] args) {
