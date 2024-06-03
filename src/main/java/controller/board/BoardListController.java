@@ -20,11 +20,11 @@ public class BoardListController {
 
     @ResponseBody
     @GetMapping("/board/getstartlist")
-    public Map<String,Object> getBoardList() {
+    public Map<String,Object> getBoardList(String myid) {
         Map<String,Object> map = new HashMap<>();
 
-        List<BoardDto> prolist=boardListService.getProChefRecipeList();
-        List<UserRecipeDto> userlist=boardListService.getUserRecipeList();
+        List<BoardDto> prolist=boardListService.getProChefRecipeList(myid);
+        List<UserRecipeDto> userlist=boardListService.getUserRecipeList(myid);
 
         map.put("prolist",prolist);
         map.put("ulist",userlist);
@@ -33,11 +33,11 @@ public class BoardListController {
     }
     @ResponseBody
     @GetMapping("/board/searchlist")
-    public Map<String,Object> searchBoardList(String search) {
+    public Map<String,Object> searchBoardList(String search,String myid) {
         Map<String,Object> map = new HashMap<>();
 
-        List<BoardDto> prolist=boardListService.searchProRecipe(search);
-        List<UserRecipeDto> userlist=boardListService.searchUserRecipe(search);
+        List<BoardDto> prolist=boardListService.searchProRecipe(search,myid);
+        List<UserRecipeDto> userlist=boardListService.searchUserRecipe(search,myid);
 
         map.put("prolist",prolist);
         map.put("ulist",userlist);

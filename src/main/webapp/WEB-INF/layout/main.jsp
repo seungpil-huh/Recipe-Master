@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<c:set var="myid" value="${sessionScope.loginid}"/>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <div class="flex flex-col items-center justify-center w-full min-h-screen bg-gray-100 dark:bg-gray-900">
     <div class="max-w-5xl w-full px-4 md:px-6">
@@ -48,6 +49,7 @@
 <script>
     let appendedRidx = new Set();
     let appendedRecipeIds = new Set();
+    let myid="${myid==null?"":myid}";
 
 
     let dataOrSearch=false;
@@ -57,11 +59,11 @@
         dataOrSearch=true;
         let count=0;
 
-
         $.ajax({
             url:"/board/getstartlist",
             dataType:"json",
             type:"get",
+            data:{"myid":myid},
             success:function (data){
                 let s="";
 
@@ -176,7 +178,8 @@
         $.ajax({
             type: "get",
             dataType: "json",
-            data:{"search":search},
+            data:{"search":search,
+            "myid":myid},
             url:"/board/searchlist",
             success:function (data){
                 let s="";
@@ -198,6 +201,9 @@
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">\${ele.rcp_NM}</h3>
                     <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.info_ENG} kcal</p>
+                    <c:if test="\${ele.favorites}">
+                    <i class='bx bxs-purchase-tag'></i>
+                    </c:if>
                     <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4">
                         자세히 보기
                     </button>
