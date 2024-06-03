@@ -46,20 +46,30 @@
 </div>
 <i class='bx bx-loader-alt' id="mainLoadingData" style="font-size: 50px"></i>
 <script>
+    let appendedRidx = new Set();
+    let appendedRecipeIds = new Set();
+
+
     let dataOrSearch=false;
+    let motherBoard=$("div.grid.grid-cols-1.sm\\:grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-4.gap-6.mt-8");
 
     function dataAdd(){
         dataOrSearch=true;
+        let count=0;
+
+
         $.ajax({
             url:"/board/getstartlist",
             dataType:"json",
             type:"get",
             success:function (data){
                 let s="";
-                $.each(data.prolist,function (idx,ele){
 
-                    s+=`
+                    $.each(data.prolist, function (idx, ele) {
+                        if (count<=8 && !appendedRidx.has(ele.ridx)) {
+                            s += `
                     <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                    <input type="hidden" value="\${ele.ridx}" name="ridx">
                 <img
                         src="\${ele.att_FILE_NO_MAIN}"
                         alt="Recipe \${idx+1}"
@@ -77,10 +87,16 @@
                 </div>
             </div>
                     `;
-                });
+                            appendedRidx.add(ele.ridx);
+                            count++;
+                        }
+                    });
+
                 $.each(data.userlist,function (idx,ele){
+                    if(!appendedRecipeIds.has(ele.recipe_id)){
                     s+=`
                         <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                        <input type="hidden" value="\${ele.recipe_id}" name="recipe_id">
                 <img
                         src="\${ele.image}"
                         alt="Recipe 4"
@@ -97,15 +113,17 @@
                     </button>
                 </div>
             </div>
-                    `
+                    `;
+                    appendedRecipeIds.add(ele.recipe_id);
+                    }
                 });
-                $("div.grid.grid-cols-1.sm\\:grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-4.gap-6.mt-8").append(s);
+                motherBoard.append(s);
             }
         });//getstartlist end
     }
     $(function (){
-        $("#mainLoadingData").hide();
         dataAdd();
+        $("#mainLoadingData").hide();
     });
     let timeoutLoading=null;
 
@@ -151,6 +169,7 @@
 
     function searchDataAdd(){
         dataOrSearch=false;
+        let count=0;
         let search=$("#searchText").val().trim();
 
 
@@ -161,10 +180,13 @@
             url:"/board/searchlist",
             success:function (data){
                 let s="";
-                $.each(data.prolist,function (idx,ele){
+
+                $.each(count<=8 && data.prolist,function (idx,ele){
+                    if(!appendedRidx.has(ele.ridx)){
 
                     s+=`
                     <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                    <input type="hidden" value="\${ele.ridx}" name="ridx">
                 <img
                         src="\${ele.att_FILE_NO_MAIN}"
                         alt="Recipe \${idx+1}"
@@ -182,10 +204,15 @@
                 </div>
             </div>
                     `;
+                    appendedRidx.add(ele.ridx);
+                    count++;
+                    }
                 });
                 $.each(data.userlist,function (idx,ele){
+                    if(!appendedRecipeIds.has(ele.recipe_id)){
                     s+=`
                         <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                        <input type="hidden" value="\${ele.recipe_id}" name="recipe_id">
                 <img
                         src="\${ele.image}"
                         alt="Recipe 4"
@@ -203,16 +230,30 @@
                 </div>
             </div>
                     `
+                    appendedRecipeIds.add(ele.recipe_id);
+                    }
                 });
-                $("div.grid.grid-cols-1.sm\\:grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-4.gap-6.mt-8").append(s);
+
+                motherBoard.append(s);
             }
-
-
         })
     }
     $("#searchRecipe").click(function (){
-        $("div.grid.grid-cols-1.sm\\:grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-4.gap-6.mt-8").empty();
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        motherBoard.empty();
         searchDataAdd();
+    });
+    $("#searchText").keyup(function (e){
+        if(e.key=="Enter"){
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500);
+            motherBoard.empty();
+            searchDataAdd();
+            $("#mainLoadingData").hide();
+        }
     });
 
 

@@ -12,6 +12,8 @@ import org.apache.ibatis.type.Alias;
 @Alias("BoardDto")
 @Builder
 public class BoardDto {
+    private int ridx;
+    private int readcount;
     private String ATT_FILE_NO_MAIN;
     private String RCP_NM;
     private String RCP_PARTS_DTLS;
