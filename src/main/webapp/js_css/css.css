@@ -167,3 +167,42 @@ nav.sidebar.active ~ .mainlayout {
 .recipe-card p {
     color: #666;
 }
+div.mainUiButtons{
+    width: 130px;
+    text-align: center;
+    font-size: 40px;
+    position: fixed;
+    right:60px;
+    bottom: 100px;
+    background-color:mediumpurple;
+    border-radius: 20px;
+}
+div.mainUiButtons i {
+    cursor: pointer;
+}
+div.mainUiButtons i:hover{
+    color:white;
+    transition: 0.3s;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#mainLoadingData {
+    animation: rotate 2s linear infinite; /* rotate 애니메이션을 2초 간격으로 무한 반복하여 적용 */
+    /* 다른 스타일 속성 */
+    position: fixed;
+    right:50%;
+    bottom:100px;
+}
+.fixed-position {
+    width: 800px;
+    position: fixed !important;
+    top: 0 !important;
+    transition: 1s ease-in-out;
+}

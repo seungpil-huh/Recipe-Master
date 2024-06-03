@@ -14,6 +14,7 @@
             <a href="#">
                 <i class="bx bx-user"></i>
                 <span class="link-name" style="--i: 2">회원정보</span>
+
             </a>
             <ul class="submenu">
                 <li>마이페이지</li>

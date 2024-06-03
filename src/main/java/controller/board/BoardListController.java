@@ -31,4 +31,17 @@ public class BoardListController {
 
         return map;
     }
+    @ResponseBody
+    @GetMapping("/board/searchlist")
+    public Map<String,Object> searchBoardList(String search) {
+        Map<String,Object> map = new HashMap<>();
+
+        List<BoardDto> prolist=boardListService.searchProRecipe(search);
+        List<UserRecipeDto> userlist=boardListService.searchUserRecipe(search);
+
+        map.put("prolist",prolist);
+        map.put("ulist",userlist);
+
+        return map;
+    }
 }

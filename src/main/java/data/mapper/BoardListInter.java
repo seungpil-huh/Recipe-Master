@@ -11,4 +11,6 @@ import java.util.List;
 public interface BoardListInter {
     public List<BoardDto> getProChefRecipeList();
     public List<UserRecipeDto> getUserRecipeList();
+    public List<BoardDto> searchProRecipe(String search);
+    public List<UserRecipeDto> searchUserRecipe(String search);
 }
