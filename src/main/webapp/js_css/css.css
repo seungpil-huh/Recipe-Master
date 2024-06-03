@@ -4,9 +4,53 @@
     box-sizing: border-box;
     font-family: 'Pretendard-Regular';
 }
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 998; /* 사이드바보다 낮은 z-index */
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 2200px; /* 필요에 따라 크기 조정 */
+    margin: 0 auto;
+}
+
+.header .auth-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto; /* 오른쪽으로 이동 */
+}
+
+.header .auth-buttons .auth-btn {
+    padding: 10px 20px;
+    background-color: mediumpurple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header .auth-buttons .auth-btn:hover {
+    background-color: darkmagenta;
+}
+
 body {
     background-color: #f0f0f0;
+    padding-top: 70px; /* 헤더 높이만큼 패딩 추가 */
 }
+
 nav.sidebar {
     position: fixed;
     top: 0;
@@ -20,6 +64,7 @@ nav.sidebar {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    z-index: 999; /* 헤더보다 높은 z-index */
 }
 
 nav.sidebar.active {
@@ -132,13 +177,6 @@ nav.sidebar .list {
 
 nav.sidebar.active ~ .mainlayout {
     margin-left: 260px;
-}
-
-.header {
-    padding: 20px;
-    text-align: center;
-    background: white;
-    margin-bottom: 20px;
 }
 
 .search-bar {
