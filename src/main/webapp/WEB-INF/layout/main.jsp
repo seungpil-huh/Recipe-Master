@@ -5,6 +5,7 @@
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <c:set var="myid" value="${sessionScope.loginid}"/>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
 <div class="flex flex-col items-center justify-center w-full min-h-screen bg-gray-100 dark:bg-gray-900">
     <div class="max-w-5xl w-full px-4 md:px-6">
         <div class="text-center space-y-4 py-12 md:py-16">
