@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
 <nav class="sidebar">
     <div class="logo-menu">
         <h2 class="logo">Recipe Master</h2>
@@ -15,12 +13,12 @@
         <li class="list-item">
             <a href="#">
                 <i class="bx bx-user"></i>
-                <span class="link-name" style="--i: 2">MyPage</span>
+                <span class="link-name" style="--i: 2">회원정보</span>
+
             </a>
             <ul class="submenu">
-                <li>My activity</li>
-                <li>My friends</li>
-                <li>MY photos</li>
+                <li>마이페이지</li>
+                <li>프로필수정</li>
             </ul>
         </li>
         <li class="list-item">
