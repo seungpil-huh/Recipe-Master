@@ -14,6 +14,7 @@ import org.apache.ibatis.type.Alias;
 public class BoardDto {
     private int ridx;
     private int readcount;
+    private boolean favorites;
     private String ATT_FILE_NO_MAIN;
     private String RCP_NM;
     private String RCP_PARTS_DTLS;

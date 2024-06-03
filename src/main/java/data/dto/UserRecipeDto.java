@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 public class UserRecipeDto {
     private int recipe_id;
     private int user_id;
+    private boolean favorites;
     private String title;
     private String description;
     private String ingredients;
