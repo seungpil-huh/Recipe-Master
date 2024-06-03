@@ -32,10 +32,4 @@
             </a>
         </li>
     </ul>
-    <div class="auth-buttons-wrapper">
-        <div class="auth-buttons">
-            <button class="auth-btn">회원가입</button>
-            <button class="auth-btn">로그인</button>
-        </div>
-    </div>
 </nav>
