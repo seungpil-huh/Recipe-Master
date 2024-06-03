@@ -18,7 +18,9 @@
 </head>
 <body>
 <tiles:insertAttribute name="sidebar"/>
+<div class="header">
 <tiles:insertAttribute name="header"/>
+</div>
 <div class="main">
     <tiles:insertAttribute name="main"/>
 </div>
