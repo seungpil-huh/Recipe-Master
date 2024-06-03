@@ -46,7 +46,10 @@
 </div>
 <i class='bx bx-loader-alt' id="mainLoadingData" style="font-size: 50px"></i>
 <script>
+    let dataOrSearch=false;
+
     function dataAdd(){
+        dataOrSearch=true;
         $.ajax({
             url:"/board/getstartlist",
             dataType:"json",
@@ -105,6 +108,7 @@
         dataAdd();
     });
     let timeoutLoading=null;
+
     window.addEventListener("scroll", () => {
         clearTimeout(timeoutLoading);
         let dataloading = false;
@@ -115,7 +119,11 @@
             $("#mainLoadingData").show(); // 로딩 아이콘 표시
 
             timeoutLoading = setTimeout(() => {
-                dataAdd();
+                if(dataOrSearch) {
+                    dataAdd();
+                }else{
+                    searchDataAdd();
+                }
                 $("#mainLoadingData").hide(); // 데이터 추가 후 로딩 아이콘 숨김
                 dataloading = false;
             }, 500);
@@ -139,18 +147,73 @@
                 top:-50 // 변경할 스타일 값
             }, 500); // 지속시간 (0.5초)
         }
-    })
-    $("#searchRecipe").click(function (){
-        let val=$("#searchText").val().trim();
+    });
+
+    function searchDataAdd(){
+        dataOrSearch=false;
+        let search=$("#searchText").val().trim();
+
 
         $.ajax({
             type: "get",
             dataType: "json",
-            data:{"search":val},
+            data:{"search":search},
+            url:"/board/searchlist",
+            success:function (data){
+                let s="";
+                $.each(data.prolist,function (idx,ele){
+
+                    s+=`
+                    <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                <img
+                        src="\${ele.att_FILE_NO_MAIN}"
+                        alt="Recipe \${idx+1}"
+                        width="400"
+                        height="300"
+                        class="rounded-t-md w-full h-48 object-cover"
+                        style="aspect-ratio:400/300;object-fit:cover"
+                />
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">\${ele.rcp_NM}</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.info_ENG} kcal</p>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4">
+                        자세히 보기
+                    </button>
+                </div>
+            </div>
+                    `;
+                });
+                $.each(data.userlist,function (idx,ele){
+                    s+=`
+                        <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+                <img
+                        src="\${ele.image}"
+                        alt="Recipe 4"
+                        width="400"
+                        height="300"
+                        class="rounded-t-md w-full h-48 object-cover"
+                        style="aspect-ratio:400/300;object-fit:cover"
+                />
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">\${ele.title}</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.description}</p>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4">
+                        자세히 보기
+                    </button>
+                </div>
+            </div>
+                    `
+                });
+                $("div.grid.grid-cols-1.sm\\:grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-4.gap-6.mt-8").append(s);
+            }
 
 
         })
-    })
+    }
+    $("#searchRecipe").click(function (){
+        $("div.grid.grid-cols-1.sm\\:grid-cols-2.md\\:grid-cols-3.lg\\:grid-cols-4.gap-6.mt-8").empty();
+        searchDataAdd();
+    });
 
 
 
