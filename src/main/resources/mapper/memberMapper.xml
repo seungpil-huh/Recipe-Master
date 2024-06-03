@@ -2,9 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="data.mapper.BoardListInter">
     <select id="getProChefRecipeList" resultType="BoardDto">
-        select ridx,readcount,is_professional,ATT_FILE_NO_MAIN,RCP_NM,INFO_ENG from chefRecipe order by rand() limit 7
+        select * from chefRecipe order by rand() limit 8
     </select>
     <select id="getUserRecipeList" resultType="UserRecipeDto">
         select * from recipes order by rand() limit 1
+    </select>
+    <select id="searchProRecipe" parameterType="String" resultType="BoardDto">
+        select * from chefRecipe where RCP_PARTS_DTLS like "%#{search}%" order by rand() limit 8
+    </select>
+    <select id="searchUserRecipe" parameterType="String" resultType="UserRecipeDto">
+        select * from recipes where ingredients like "%#{search}%" order by rand() limit 1
     </select>
 </mapper>

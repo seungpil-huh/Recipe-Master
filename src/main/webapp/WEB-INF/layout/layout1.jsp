@@ -18,9 +18,6 @@
 </head>
 <body>
 <tiles:insertAttribute name="sidebar"/>
-<div class="search">
-    <tiles:insertAttribute name="search"/>
-</div>
 <div class="main">
     <tiles:insertAttribute name="main"/>
 </div>

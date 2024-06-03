@@ -15,7 +15,7 @@
         <li class="list-item">
             <a href="#">
                 <i class="bx bx-user"></i>
-                <span class="link-name" style="--i: 2">My Page</span>
+                <span class="link-name" style="--i: 2">MyPage</span>
             </a>
             <ul class="submenu">
                 <li>My activity</li>

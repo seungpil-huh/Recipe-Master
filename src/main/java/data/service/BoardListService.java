@@ -19,4 +19,10 @@ public class BoardListService {
     public List<UserRecipeDto> getUserRecipeList(){
         return boardListInter.getUserRecipeList();
     }
+    public List<BoardDto> searchProRecipe(String search){
+        return boardListInter.searchProRecipe(search);
+    };
+    public List<UserRecipeDto> searchUserRecipe(String search){
+        return boardListInter.searchUserRecipe(search);
+    }
 }
