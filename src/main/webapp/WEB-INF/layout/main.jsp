@@ -160,7 +160,7 @@
         $("div.relative").toggleClass("fixed-position");
         if ($("div.relative").hasClass("fixed-position")) {
             $("div.relative").animate({
-                top:20 // 변경할 스타일 값
+                top:50 // 변경할 스타일 값
             }, 500); // 지속시간 (0.5초)
         } else {
             $("div.relative").animate({

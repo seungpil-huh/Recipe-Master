@@ -219,7 +219,7 @@ div.mainUiButtons{
     position: fixed;
     right:60px;
     bottom: 100px;
-    background-color:mediumpurple;
+    background-color:rgba(0,0,0,0.2);
     border-radius: 20px;
 }
 div.mainUiButtons i {
