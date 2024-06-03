@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: DONGWOOBAE
-  Date: 2024-06-01
-  Time: 오후 1:47
+  Date: 2024-06-03
+  Time: 오전 10:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -27,6 +27,5 @@
     </style>
 </head>
 <body>
-fasfsfsdfs
 </body>
 </html>

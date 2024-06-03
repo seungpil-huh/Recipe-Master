@@ -17,8 +17,11 @@
 </head>
 <body>
 <tiles:insertAttribute name="sidebar"/>
-<div class="mainLayout">
-
+<div class="search">
+    <tiles:insertAttribute name="search"/>
+</div>
+<div class="main">
+    <tiles:insertAttribute name="main"/>
 </div>
 </body>
 <script src="../js_css/recipeScript.js"></script>
