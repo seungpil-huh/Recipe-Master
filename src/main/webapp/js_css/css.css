@@ -13,10 +13,13 @@ nav.sidebar {
     left: 0;
     width: 80px;
     height: 100%;
-    background:rgba(0,0,0,0.05);
+    background: rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(40px);
     padding: 6px 14px;
-    transition: 0.5s;
+    transition: width 0.5s, background 0.3s, backdrop-filter 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 nav.sidebar.active {
@@ -30,6 +33,7 @@ nav.sidebar .logo-menu {
     align-items: center;
     width: 100%;
     height: 70px;
+    overflow: hidden;
 }
 
 nav.sidebar .logo-menu .logo {
@@ -56,7 +60,7 @@ nav.sidebar .logo-menu i.toggle-btn {
     text-align: center;
     line-height: 40px;
     cursor: pointer;
-    transition: 0.5s;
+    transition: left 0.5s;
 }
 
 nav.sidebar.active .logo-menu i.toggle-btn {
@@ -65,6 +69,7 @@ nav.sidebar.active .logo-menu i.toggle-btn {
 
 nav.sidebar .list {
     margin-top: 10px;
+    flex-grow: 1;
 }
 
 .list .list-item {
@@ -82,6 +87,7 @@ nav.sidebar .list {
     color: black;
     text-decoration: none;
     border-radius: 6px;
+    padding: 10px 0;
 }
 
 .list .list-item.active a {
@@ -115,6 +121,45 @@ nav.sidebar .list {
     align-content: center;
     list-style: none;
     color: black;
+    display: none;
+}
+
+.auth-buttons-wrapper {
+    margin-top: auto;
+    padding: 10px 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.sidebar.active .auth-buttons-wrapper {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0.3s;
+}
+
+.auth-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 1px;
+}
+
+.auth-buttons .auth-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1;
+    margin: 5px;
+}
+
+.auth-buttons .auth-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .mainlayout {

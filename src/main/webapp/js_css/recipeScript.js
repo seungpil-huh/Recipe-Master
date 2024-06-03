@@ -4,7 +4,11 @@ const toggleBtn = document.querySelector(".toggle-btn");
 $(".submenu").hide();
 toggleBtn.addEventListener("click", function () {
     mysidebar.classList.toggle("active");
-    $(".submenu").slideUp();
+    if (!mysidebar.classList.contains("active")) {
+        setTimeout(() => {
+            $(".submenu").slideUp();
+        }, 500);  // 트랜지션이 끝나는 시간에 맞춰 조정
+    }
 });
 
 $(document).ready(function () {
@@ -17,4 +21,3 @@ $(document).ready(function () {
         }
     });
 });
-
