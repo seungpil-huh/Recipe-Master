@@ -19,7 +19,7 @@ public class BoardDetailController {
             @RequestParam String myid,
             Model model) {
         BoardDto dto =boardDetailService.selectOneProRecipe(myid, ridx);
-        model.addAttribute("board", dto);
+        model.addAttribute("boarddto", dto);
         return "board/detailpropage";
     }
     @GetMapping("/board/detailuser")
