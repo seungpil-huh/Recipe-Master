@@ -13,20 +13,20 @@
             </a>
         </li>
         <li class="list-item">
-            <a href="#">
+            <a href="#" onclick="location.href='/mypage/update?user_id=${sessionScope.loginid}'">
                 <i class="bx bx-user"></i>
                 <span class="link-name" style="--i: 2">UserInfo</span>
 
             </a>
         </li>
         <li class="list-item">
-            <a href="#">
+            <a href="#" onclick="location.href='/mypage/myreview?user_id=${sessionScope.loginid}'">
                 <i class="bx bx-book-alt"></i>
                 <span class="link-name" style="--i: 3">MyReviews</span>
             </a>
         </li>
         <li class="list-item">
-            <a href="#">
+            <a href="#" onclick="location.href='/mypage/myfavorites?user_id=${sessionScope.loginid}'">
                 <i class="bx bx-heart"></i>
                 <span class="link-name" style="--i: 4">Favorites</span>
             </a>

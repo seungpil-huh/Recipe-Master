@@ -64,7 +64,7 @@
             url:"/board/getstartlist",
             dataType:"json",
             type:"get",
-            data:{"myid":myid},
+            data:{"user_id":myid},
             success:function (data){
                 let s="";
 
@@ -88,7 +88,7 @@
                     <i class='bx bxs-purchase-tag'></i>
                     </c:if>
                     <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
-                    onclick="location.href='/board/detailpro?ridx=\${ele.ridx}&myid=\${myid}'">
+                    onclick="location.href='/board/detailpro?ridx=\${ele.ridx}&user_id=\${myid}'">
                         자세히 보기
                     </button>
                 </div>
@@ -119,7 +119,7 @@
                     <i class='bx bxs-purchase-tag'></i>
                     </c:if>
                     <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
-                    onclick="location.href='./detailuser?recipe_id=\${ele.recipe_id}&myid=\${myid}'">
+                    onclick="location.href='./detailuser?recipe_id=\${ele.recipe_id}&user_id=\${myid}'">
                         자세히 보기
                     </button>
                 </div>
@@ -179,7 +179,7 @@
             type: "get",
             dataType: "json",
             data:{"search":search,
-            "myid":myid},
+            "user_id":myid},
             url:"/board/searchlist",
             success:function (data){
                 let s="";
@@ -205,7 +205,7 @@
                     <i class='bx bxs-purchase-tag'></i>
                     </c:if>
                     <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
-                    onclick="location.href='/board/detailpro?ridx=\${ele.ridx}&myid=\${myid}'">
+                    onclick="location.href='/board/detailpro?ridx=\${ele.ridx}&user_id=\${myid}'">
                         자세히 보기
                     </button>
                 </div>
@@ -235,7 +235,7 @@
                     <i class='bx bxs-purchase-tag'></i>
                     </c:if>
                     <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
-                    onclick="location.href='./detailuser?recipe_id=\${ele.recipe_id}&myid=\${myid}'">
+                    onclick="location.href='./detailuser?recipe_id=\${ele.recipe_id}&user_id=\${myid}'">
                         자세히 보기
                     </button>
                 </div>
