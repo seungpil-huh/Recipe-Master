@@ -9,26 +9,26 @@
         <li class="list-item active">
             <a href="#">
                 <i class="bx bx-home-alt"></i>
-                <span class="link-name" style="--i: 1">홈</span>
+                <span class="link-name" style="--i: 1">Home</span>
             </a>
         </li>
         <li class="list-item">
             <a href="#">
                 <i class="bx bx-user"></i>
-                <span class="link-name" style="--i: 2">회원정보</span>
+                <span class="link-name" style="--i: 2">UserInfo</span>
 
             </a>
         </li>
         <li class="list-item">
             <a href="#">
                 <i class="bx bx-book-alt"></i>
-                <span class="link-name" style="--i: 3">내가 쓴 리뷰</span>
+                <span class="link-name" style="--i: 3">MyReviews</span>
             </a>
         </li>
         <li class="list-item">
             <a href="#">
                 <i class="bx bx-heart"></i>
-                <span class="link-name" style="--i: 4">내가 찜한 목록</span>
+                <span class="link-name" style="--i: 4">Favorites</span>
             </a>
         </li>
     </ul>
