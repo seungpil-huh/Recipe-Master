@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="data.mapper.BoardListInter">
-    <select id="getProChefRecipeList" parameterType="String" resultType="BoardDto">
-        select c.*,(select count(*) from favorites f where c.ridx=f.ridx and #{myid}=f.user_id) as favorites from chefRecipe c order by rand() limit 8
-    </select>
-    <select id="getUserRecipeList" parameterType="String" resultType="UserRecipeDto">
-        select r.*,(select count(*) from favorites f where r.recipe_id=f.recipe_id and #{myid}=f.user_id) as favorites from recipes r order by rand() limit 1
-    </select>
-    <select id="searchProRecipe" parameterType="Map" resultType="BoardDto">
-        select c.*,(select count(*) from favorites f where c.ridx=f.ridx and #{myid}=f.user_id) as favorites from chefRecipe c where RCP_PARTS_DTLS like "%${search}%" or RCP_NM like "%${search}%" order by rand() limit 8
-    </select>
-    <select id="searchUserRecipe" parameterType="Map" resultType="UserRecipeDto">
-        select r.*,(select count(*) from favorites f where r.recipe_id=f.recipe_id and #{myid}=f.user_id) as favorites from recipes r where ingredients like "%${search}%" or title like "%${search}%" order by rand() limit 1
-    </select>
+<mapper namespace="data.mapper.MemberMapperInter">
+    <!-- <select id="getTotalCount" resultType="int">
+        select count(*) from memberdb
+    </select> -->
 </mapper>
