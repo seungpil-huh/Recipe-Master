@@ -21,7 +21,7 @@
 <div class="header">
 <tiles:insertAttribute name="header"/>
 </div>
-<div class="main">
+<div class="mainLayout">
     <tiles:insertAttribute name="main"/>
 </div>
 </body>

@@ -24,7 +24,7 @@ public class BoardController {
     private DataService dataService;
 
 
-    public String list(Model model) {
+    public List<BoardDto> list(Model model) {
         List<BoardDto> list = new ArrayList<>();
         try {
             URL url=new URL("http://openapi.foodsafetykorea.go.kr/api/b1981fc2518f4ed69016/COOKRCP01/json/1/1000");
@@ -35,8 +35,9 @@ public class BoardController {
             JsonNode rootNode = mapper.readTree(result);
             JsonNode rowsNode = rootNode.get("COOKRCP01").get("row");
 
+            BoardDto dto=new BoardDto();
             for (JsonNode row : rowsNode) {
-                BoardDto dto = BoardDto.builder()
+                dto = BoardDto.builder()
                         .RCP_PARTS_DTLS(row.get("RCP_PARTS_DTLS").asText())
                         .RCP_WAY2(row.get("RCP_WAY2").asText())
                         .MANUAL_IMG20(row.get("MANUAL_IMG20").asText())
@@ -93,7 +94,7 @@ public class BoardController {
                         .MANUAL13(row.get("MANUAL13").asText())
                         .MANUAL14(row.get("MANUAL14").asText())
                         .build();
-
+                list.add(dto);
                 // 여기에서 다른 필드들도 매핑하는 코드 작성
                 dataService.insertList(dto);
             }
@@ -101,7 +102,7 @@ public class BoardController {
             throw new RuntimeException(e);
         }
 
-        return "board/boardlist";
+        return list;
     }
 
 

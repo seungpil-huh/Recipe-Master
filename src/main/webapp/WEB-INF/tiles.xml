@@ -13,4 +13,7 @@
     <definition name="*/*" extends="mainLayout">
         <put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"/>
     </definition>
+    <definition name="login/*" extends="empty">
+        <put-attribute name="content" value="/WEB-INF/views/{1}.jsp"></put-attribute>
+    </definition>
 </tiles-definitions>
