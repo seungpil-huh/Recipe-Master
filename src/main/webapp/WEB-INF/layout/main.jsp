@@ -249,22 +249,6 @@
             }
         })
     }
-    $("#searchRecipe").click(function (){
-        $('html, body').animate({
-            scrollTop: 0
-        }, 500);
-        motherBoard.empty();
-        searchDataAdd();
-    });
-    $("#searchText").keyup(function (e){
-        if(e.key=="Enter"){
-            $('html, body').animate({
-                scrollTop: 0
-            }, 500);
-            motherBoard.empty();
-            searchDataAdd();
-            $("#mainLoadingData").hide();
-        }
-    });
+
 
 </script>

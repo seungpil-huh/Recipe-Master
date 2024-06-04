@@ -7,9 +7,18 @@
 
 <header class="header">
     <div class="container">
+        <c:if test="${sessionScope.loginok!='yes'}">
         <div class="auth-buttons">
             <button class="auth-btn" onclick="location.href='/member/memberform'">회원가입</button>
-            <button class="auth-btn" onclick="location.href='login/loginform'">로그인</button>
+            <button class="auth-btn" onclick="location.href='/login/loginform'">로그인</button>
         </div>
+        </c:if>
+        <c:if test="${sessionScope.loginok=='yes'}">
+            <div class="auth-buttons">
+                <h3>${sessionScope.loginid}님</h3>
+                <button class="auth-btn" type="button" id="logoutBtn">로그아웃</button>
+            </div>
+        </c:if>
     </div>
 </header>
+

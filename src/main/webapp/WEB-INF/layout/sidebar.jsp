@@ -7,7 +7,7 @@
     </div>
     <ul class="list">
         <li class="list-item active">
-            <a href="#">
+            <a onclick="location.href='/'">
                 <i class="bx bx-home-alt"></i>
                 <span class="link-name" style="--i: 1">Home</span>
             </a>
