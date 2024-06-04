@@ -8,8 +8,8 @@
 <header class="header">
     <div class="container">
         <div class="auth-buttons">
-            <button class="auth-btn" onclick="location.href='/signup'">회원가입</button>
-            <button class="auth-btn" id="loginPopup">로그인</button>
+            <button class="auth-btn" onclick="location.href='/member/memberform'">회원가입</button>
+            <button class="auth-btn" onclick="location.href='/login'">로그인</button>
         </div>
     </div>
 </header>
