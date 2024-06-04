@@ -12,8 +12,8 @@
 <div class="loginForm">
 <div class="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-md" data-v0-t="card" style="background-color: white">
     <div class="flex flex-col p-6 space-y-1">
-        <h3 class="whitespace-nowrap font-semibold tracking-tight text-2xl">Login</h3>
-        <p class="text-sm text-muted-foreground">Enter your email and password to access your account.</p>
+        <h3 class="whitespace-nowrap font-semibold tracking-tight text-2xl">로그인</h3>
+        <p class="text-sm text-muted-foreground">아이디와 비밀번호를 입력하세요</p>
     </div>
     <form id="loginForm">
     <div class="p-6 space-y-4">
@@ -22,7 +22,7 @@
                     class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 
             >
-                UserId
+                아이디
             </label>
             <input
                     class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
@@ -38,7 +38,7 @@
                         class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                         for="password"
                 >
-                    Password
+                    비밀번호
                 </label>
             </div>
             <input
@@ -52,11 +52,11 @@
         <div class="flex items-center space-x-2">
             <label>
                 <input type="checkbox" name="saveid"
-                ${sessionScope.saveid==null or sessionScope.saveid=='no'?"":"checked"}>&nbsp;saveid
+                ${sessionScope.saveid==null or sessionScope.saveid=='no'?"":"checked"}>&nbsp;아이디 저장
             </label>
         </div>
         <div style="display: flex;justify-content: center">
-            <button type="submit" id="submitLogin" style="margin-right: 50px;">login</button><button type="button">sign up</button>
+            <button type="submit" id="submitLogin" style="margin-right: 50px;">로그인</button><button type="button">회원가입</button>
         </div>
     </div>
     </form>
