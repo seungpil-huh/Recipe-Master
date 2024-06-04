@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.BoardDetailInter">
+ <select id="selectOneProRecipe" parameterType="Map" resultType="BoardDto">
+  select c.*,(select count(*) from favorites f where c.ridx=f.ridx and #{user_id}=f.user_id) as favorites from chefRecipe c where c.ridx=#{ridx}
+ </select>
+ <select id="selectOneUserRecipe" parameterType="Map" resultType="UserRecipeDto">
+  select r.*,(select count(*) from favorites f where r.recipe_id=f.recipe_id and #{user_id}=f.user_id) as favorites from recipes r where r.recipe_id=#{recipe_id}
+ </select>
+</mapper>

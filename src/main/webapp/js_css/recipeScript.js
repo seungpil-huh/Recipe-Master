@@ -22,17 +22,7 @@ $(document).ready(function () {
         }
     });
 });
-//로그아웃 버튼
-$("#logoutBtn").click(function (){
-    $.ajax({
-        type:"get",
-        dataType:"text",
-        url:"login/logout",
-        success:function (){
-            location.reload();
-        }
-    })
-});
+
 //로그인 폼 전송
 $("#loginForm").submit(function (e){
     e.preventDefault();
