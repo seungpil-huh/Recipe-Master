@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<<<<<<<< HEAD:src/main/resources/mapper/boardMapper.xml
 <mapper namespace="data.mapper.BoardListInter">
     <select id="getProChefRecipeList" parameterType="String" resultType="BoardDto">
         select c.*,(select count(*) from favorites f where c.ridx=f.ridx and #{myid}=f.user_id) as favorites from chefRecipe c order by rand() limit 8
@@ -20,10 +19,4 @@
     <select id="selectOneUserRecipe" parameterType="Map" resultType="UserRecipeDto">
         select r.*,(select count(*) from favorites f where r.recipe_id=f.recipe_id and #{myid}=f.user_id) as favorites from recipes r where r.recipe_id=#{recipe_id}
     </select>
-========
-<mapper namespace="data.mapper.MemberMapperInter">
-    <!-- <select id="getTotalCount" resultType="int">
-        select count(*) from memberdb
-    </select> -->
->>>>>>>> origin/main:src/main/resources/mapper/memberMapper.xml
 </mapper>
