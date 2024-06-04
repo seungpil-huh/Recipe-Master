@@ -58,6 +58,18 @@ button.check-id:hover, button.submit-form:hover {
     background-color: darkgray;
 }
 
+button.detail-view-btn {
+    background-color: black;
+    color: white;
+    border: none; /* Ensure there's no border if any */
+}
+
+button.detail-view-btn:hover {
+    background-color: darkgray;
+    color: black;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
 /* checkbox styles */
 .checkbox-container input[type="checkbox"] {
     display: none;
