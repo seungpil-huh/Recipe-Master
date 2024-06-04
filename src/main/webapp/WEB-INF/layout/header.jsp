@@ -4,7 +4,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-
+<c:set var="root" value="<%=request.getContextPath()%>"/>
 <header class="header">
     <div class="container">
         <c:if test="${sessionScope.loginok!='yes'}">
@@ -21,4 +21,17 @@
         </c:if>
     </div>
 </header>
+<script>
+    //로그아웃 버튼
+    $("#logoutBtn").click(function (){
+        $.ajax({
+            type:"get",
+            dataType:"text",
+            url:"${root}/login/logout",
+            success:function (){
+                location.reload();
+            }
+        })
+    });
+</script>
 
