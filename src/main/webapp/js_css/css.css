@@ -259,7 +259,7 @@ div.memberForm{
     background-color: white;
     width: 700px;
     position: relative;
-    margin-left:400px;
+    left: 33%;
     margin-top:50px;
     padding: 20px;
 }
