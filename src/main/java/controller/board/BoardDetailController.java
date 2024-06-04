@@ -16,17 +16,17 @@ public class BoardDetailController {
     @GetMapping("/board/detailpro")
     public String boardDetailPro(
             @RequestParam int ridx,
-            @RequestParam String myid,
+            @RequestParam String user_id,
             Model model) {
-        BoardDto dto =boardDetailService.selectOneProRecipe(myid, ridx);
-        model.addAttribute("board", dto);
+        BoardDto dto =boardDetailService.selectOneProRecipe(user_id, ridx);
+        model.addAttribute("boarddto", dto);
         return "board/detailpropage";
     }
     @GetMapping("/board/detailuser")
     public String boardDetailUser(@RequestParam int recipe_id,
-                                  @RequestParam String myid,
+                                  @RequestParam String user_id,
                                   Model model){
-        UserRecipeDto dto = boardDetailService.selectOneUserRecipe(myid,recipe_id);
+        UserRecipeDto dto = boardDetailService.selectOneUserRecipe(user_id,recipe_id);
         model.addAttribute("userdto", dto);
         return "board/detailuserpage";
     }

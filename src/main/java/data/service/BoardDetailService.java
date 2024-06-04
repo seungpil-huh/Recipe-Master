@@ -14,15 +14,15 @@ public class BoardDetailService {
     @Autowired
     private BoardDetailInter boardDetailInter;
 
-    public BoardDto selectOneProRecipe(String myid,int ridx){
+    public BoardDto selectOneProRecipe(String user_id,int ridx){
         Map<String,Object> map = new HashMap<>();
-        map.put("myid",myid);
+        map.put("user_id",user_id);
         map.put("ridx",ridx);
         return boardDetailInter.selectOneProRecipe(map);
     }
-    public UserRecipeDto selectOneUserRecipe(String myid,int recipe_id){
+    public UserRecipeDto selectOneUserRecipe(String user_id,int recipe_id){
         Map<String,Object> map = new HashMap<>();
-        map.put("myid",myid);
+        map.put("user_id",user_id);
         map.put("recipe_id",recipe_id);
         return boardDetailInter.selectOneUserRecipe(map);
     }

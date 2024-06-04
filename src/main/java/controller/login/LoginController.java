@@ -36,9 +36,8 @@ public class LoginController {
             session.setAttribute("loginid", user_id);
             session.setAttribute("saveid", saveid.equals("no")?"no":"yes");
             session.setAttribute("loginok","yes");
-            if(saveid.equals("yes")) {
-                session.setAttribute("saved_id",user_id);
-            }
+            session.setAttribute("saved_id",user_id);
+
         }else {
             map.put("status", "fail");
         }

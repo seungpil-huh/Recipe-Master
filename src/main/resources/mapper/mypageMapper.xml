@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.MyPageInter">
+<select id="getMyProReviews" parameterType="String" resultType="BoardDto">
+    SELECT
+        c.*
+    FROM
+        chefRecipe c
+    WHERE
+        c.ridx IN (
+            SELECT
+                r.ridx
+            FROM
+                recipe_reviews r
+            WHERE
+                r.user_id = #{user_id}
+        )
+</select>
+    <select id="getMyUserReviews" parameterType="String" resultType="UserRecipeDto">
+        select r.* from recipe r where r.recipe_id in(select r.recipe_id from recipe_reviews c where c.user_id=#{user_id})
+    </select>
+
+</mapper>

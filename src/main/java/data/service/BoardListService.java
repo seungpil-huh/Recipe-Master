@@ -15,22 +15,22 @@ public class BoardListService {
     @Autowired
     BoardListInter boardListInter;
 
-    public List<BoardDto> getProChefRecipeList(String myid){
-        return boardListInter.getProChefRecipeList(myid);
+    public List<BoardDto> getProChefRecipeList(String user_id){
+        return boardListInter.getProChefRecipeList(user_id);
     }
-    public List<UserRecipeDto> getUserRecipeList(String myid){
-        return boardListInter.getUserRecipeList(myid);
+    public List<UserRecipeDto> getUserRecipeList(String user_id){
+        return boardListInter.getUserRecipeList(user_id);
     }
-    public List<BoardDto> searchProRecipe(String search,String myid){
+    public List<BoardDto> searchProRecipe(String search,String user_id){
         Map<String,String> map = new HashMap<>();
         map.put("search",search);
-        map.put("myid",myid);
+        map.put("user_id",user_id);
         return boardListInter.searchProRecipe(map);
     };
-    public List<UserRecipeDto> searchUserRecipe(String search,String myid){
+    public List<UserRecipeDto> searchUserRecipe(String search,String user_id){
         Map<String,String> map = new HashMap<>();
         map.put("search",search);
-        map.put("myid",myid);
+        map.put("user_id",user_id);
         return boardListInter.searchUserRecipe(map);
     }
 }

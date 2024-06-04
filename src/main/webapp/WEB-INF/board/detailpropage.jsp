@@ -7,7 +7,7 @@
     <section class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
         <div class="container grid items-center justify-center gap-8 px-4 md:px-6">
             <div class="grid gap-4">
-                <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl">Homemade Spaghetti Bolognese</h1>
+                <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl"></h1>
                 <p class="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                     A classic Italian dish made with a rich, flavorful meat sauce and tender spaghetti.
                 </p>
@@ -28,7 +28,7 @@
                 <ul class="grid gap-2 sm:grid-cols-2 md:grid-cols-3">
                     <li>
                         <div class="flex items-center gap-2">
-                            <svg
+                            <sg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="24"
                                     height="24"
@@ -41,7 +41,7 @@
                                     class="h-5 w-5 text-primary"
                             >
                                 <path d="M20 6 9 17l-5-5"></path>
-                            </svg>
+                            </sg>
                             <span>1 lb ground beef</span>
                         </div>
                     </li>
