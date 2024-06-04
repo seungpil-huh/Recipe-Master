@@ -73,6 +73,16 @@ public class MemberFormController {
 
         return "redirect:/";
     }
+    @ResponseBody //json으로 반환
+    @GetMapping("/member/idcheck")
+    public Map<String, Integer> getMethodName(@RequestParam String searchid) {
+        Map<String, Integer> map = new HashMap<>();
 
+        int count=memberService.getIdCheckCount(searchid);
+
+        map.put("count", count);
+
+        return map;
+    }
 
 }
