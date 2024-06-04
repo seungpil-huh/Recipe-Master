@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,17 +38,6 @@ public class MemberFormController {
     public String form()
     {
         return "member/memberform";
-    }
-
-    @ResponseBody  //json 으로 반환
-    @GetMapping("/member/idcheck")
-    public Map<String, Integer> getIdCheck(
-            @RequestParam String searchid)
-    {
-        Map<String, Integer> map=new HashMap<>();
-        int count=memberService.getIdCheckCount(searchid);
-        map.put("count", count);
-        return map;
     }
 
     @PostMapping("/member/insert")
@@ -81,6 +71,8 @@ public class MemberFormController {
         //db 에 저장
         memberService.insertMember(dto);
 
-        return "redirect:./list";
+        return "redirect:/";
     }
+
+
 }

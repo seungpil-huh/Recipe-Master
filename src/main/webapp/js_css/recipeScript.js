@@ -1,6 +1,7 @@
 const mysidebar = document.querySelector("nav.sidebar");
 const toggleBtn = document.querySelector(".toggle-btn");
 
+
 $(".submenu").hide();
 toggleBtn.addEventListener("click", function () {
     mysidebar.classList.toggle("active");
@@ -20,4 +21,52 @@ $(document).ready(function () {
             $(this).parent().siblings().find("ul.submenu").slideUp();
         }
     });
+});
+//로그아웃 버튼
+$("#logoutBtn").click(function (){
+    $.ajax({
+        type:"get",
+        dataType:"text",
+        url:"login/logout",
+        success:function (){
+            location.reload();
+        }
+    })
+});
+//로그인 폼 전송
+$("#loginForm").submit(function (e){
+    e.preventDefault();
+    let logindata=$(this).serialize();
+    $.ajax({
+        type:"get",
+        dataType:"json",
+        data:logindata,
+        url:`/login/loginGo`,
+        success:function (data){
+            if(data.status==="fail"){
+                alert("id와 passwd 확인요망");
+            }else{
+                location.href="/";
+            }
+        }
+    })
+});
+//검색버튼 클릭
+$("#searchRecipe").click(function (){
+    $('html, body').animate({
+        scrollTop: 0
+    }, 500);
+    motherBoard.empty();
+    searchDataAdd();
+});
+
+$("#searchText").keyup(function (e){
+    if(e.key=="Enter"){
+        $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+        motherBoard.empty();
+        searchDataAdd();
+        $("#mainLoadingData").hide();
+    }
 });

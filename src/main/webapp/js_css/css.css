@@ -162,6 +162,7 @@ nav.sidebar .list {
     text-decoration: none;
     border-radius: 6px;
     padding: 10px 0;
+    cursor: pointer;
 }
 
 .list .list-item.active a {
@@ -285,7 +286,12 @@ div.memberForm{
     background-color: white;
     width: 700px;
     position: relative;
-    left: 33%;
+    left:33%;
     margin-top:50px;
     padding: 20px;
+}
+div.loginForm{
+    position: relative;
+    left: 33%;
+    margin-top:50px;
 }

@@ -45,7 +45,7 @@ public interface MemberMapperInter {
     public int isEqualPassCheck(Map<String, Object> map);
 
     @Select("""
-            select count(*) from users where user_id=#{user_id} and password=#{pass}
+            select count(*) from users where user_id=#{user_id} and password=#{passwd}
             """)
-    public int isLoginCheck(String user_id, String pass);
+    public int isLoginCheck(String user_id, String passwd);
 }

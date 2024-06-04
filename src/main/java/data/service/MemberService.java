@@ -71,8 +71,8 @@ public class MemberService {
         memInter.deleteMember(num);
     }
 
-    public boolean isLoginCheck(String user_id,String pass)
+    public boolean isLoginCheck(String user_id,String passwd)
     {
-        return memInter.isLoginCheck(user_id, pass)==1?true:false;
+        return memInter.isLoginCheck(user_id, passwd)==1?true:false;
     }
 }
