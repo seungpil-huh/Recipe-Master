@@ -21,7 +21,3 @@ $(document).ready(function () {
         }
     });
 });
-$("#loginPopup").click(function(){
-    window.open("./login/loginform", "login",
-        "width=400, height=330, left=100, top=50");
-});

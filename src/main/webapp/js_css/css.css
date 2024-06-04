@@ -255,3 +255,11 @@ div.mainUiButtons i:hover{
     transition: 1s ease-in-out;
     z-index: 999;
 }
+div.memberForm{
+    background-color: white;
+    width: 700px;
+    position: relative;
+    margin-left:400px;
+    margin-top:50px;
+    padding: 20px;
+}

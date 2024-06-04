@@ -67,9 +67,10 @@
       }
    }
 </script>
-
+<div class="memberForm" >
 <div class="mx-auto max-w-[400px] space-y-6">
    <div class="space-y-2 text-center">
+      <form action="./member/insert">
       <h1 class="text-3xl font-bold">회원가입</h1>
       <p class="text-gray-500 dark:text-gray-400">회원 정보를 입력해주세요</p>
    </div>
@@ -186,8 +187,16 @@
       <div class="flex gap-4">
          <button
                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full"
-                 type="submit"
-         ></button>
+                 type="submit" id="memberformSubmit"
+         >
+            회원가입
+         </button>
+         <button class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full"
+         type="reset">
+            초기화
+         </button>
       </div>
+      </form>
    </div>
+</div>
 </div>
