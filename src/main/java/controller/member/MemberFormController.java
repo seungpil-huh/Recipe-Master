@@ -27,7 +27,7 @@ public class MemberFormController {
     private MemberService memberService;
 
     private String bucketName="bitcamp-bucket-91";
-    private String folderName="photocommon";
+    private String folderName="teamproject";
 
     @Autowired
     private NcpObjectStorageService storageService;
