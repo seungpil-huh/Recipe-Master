@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: 'Pretendard-Regular';
 }
+div.header,div.main{
+    display: block;
+}
 
 .header {
     display: flex;
@@ -219,7 +222,7 @@ div.mainUiButtons{
     position: fixed;
     right:60px;
     bottom: 100px;
-    background-color:mediumpurple;
+    background-color:rgba(0,0,0,0.2);
     border-radius: 20px;
 }
 div.mainUiButtons i {
@@ -248,6 +251,15 @@ div.mainUiButtons i:hover{
 .fixed-position {
     width: 800px;
     position: fixed !important;
-    top: 0 !important;
+    top: 100px !important;
     transition: 1s ease-in-out;
+    z-index: 999;
+}
+div.memberForm{
+    background-color: white;
+    width: 700px;
+    position: relative;
+    margin-left:400px;
+    margin-top:50px;
+    padding: 20px;
 }

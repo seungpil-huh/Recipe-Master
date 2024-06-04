@@ -18,8 +18,10 @@
 </head>
 <body>
 <tiles:insertAttribute name="sidebar"/>
+<div class="header">
 <tiles:insertAttribute name="header"/>
-<div class="main">
+</div>
+<div class="mainLayout">
     <tiles:insertAttribute name="main"/>
 </div>
 </body>

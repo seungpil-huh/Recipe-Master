@@ -84,7 +84,11 @@
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">\${ele.rcp_NM}</h3>
                     <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.info_ENG} kcal</p>
-                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4">
+                    <c:if test="\${ele.favorites}">
+                    <i class='bx bxs-purchase-tag'></i>
+                    </c:if>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
+                    onclick="location.href='/board/detailpro?ridx=\${ele.ridx}&myid=\${myid}'">
                         자세히 보기
                     </button>
                 </div>
@@ -111,7 +115,11 @@
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">\${ele.title}</h3>
                     <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.description}</p>
-                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4">
+                    <c:if test="\${ele.favorites}">
+                    <i class='bx bxs-purchase-tag'></i>
+                    </c:if>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
+                    onclick="location.href='./detailuser?recipe_id=\${ele.recipe_id}&myid=\${myid}'">
                         자세히 보기
                     </button>
                 </div>
@@ -159,15 +167,6 @@
     });
     $("#mainLoadSearch").click(function (){
         $("div.relative").toggleClass("fixed-position");
-        if ($("div.relative").hasClass("fixed-position")) {
-            $("div.relative").animate({
-                top:50 // 변경할 스타일 값
-            }, 500); // 지속시간 (0.5초)
-        } else {
-            $("div.relative").animate({
-                top:-50 // 변경할 스타일 값
-            }, 500); // 지속시간 (0.5초)
-        }
     });
 
     function searchDataAdd(){
@@ -185,8 +184,8 @@
             success:function (data){
                 let s="";
 
-                $.each(count<=8 && data.prolist,function (idx,ele){
-                    if(!appendedRidx.has(ele.ridx)){
+                $.each( data.prolist,function (idx,ele){
+                    if(count<=8 &&!appendedRidx.has(ele.ridx)){
 
                     s+=`
                     <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
@@ -205,7 +204,8 @@
                     <c:if test="\${ele.favorites}">
                     <i class='bx bxs-purchase-tag'></i>
                     </c:if>
-                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4">
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
+                    onclick="location.href='/board/detailpro?ridx=\${ele.ridx}&myid=\${myid}'">
                         자세히 보기
                     </button>
                 </div>
@@ -231,7 +231,11 @@
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">\${ele.title}</h3>
                     <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.description}</p>
-                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4">
+                    <c:if test="\${ele.favorites}">
+                    <i class='bx bxs-purchase-tag'></i>
+                    </c:if>
+                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
+                    onclick="location.href='./detailuser?recipe_id=\${ele.recipe_id}&myid=\${myid}'">
                         자세히 보기
                     </button>
                 </div>
@@ -262,7 +266,5 @@
             $("#mainLoadingData").hide();
         }
     });
-
-
 
 </script>
