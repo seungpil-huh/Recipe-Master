@@ -3,7 +3,7 @@
 <mapper namespace="data.mapper.MyPageInter">
 <select id="getMyProReviews" parameterType="String" resultType="BoardDto">
     SELECT
-        c.*,(select rating from recipe_reviews where user_id=#{user_id}) as rating,(select comment from recipe_reviews where user_id=#{user_id}) as comment
+        c.*,(select rating from recipe_reviews r where user_id=#{user_id} and c.ridx=r.ridx limit 1) as rating,(select comment from recipe_reviews r where user_id=#{user_id} and c.ridx=r.ridx limit 1) as comment
     FROM
         chefRecipe c
     WHERE
@@ -17,10 +17,10 @@
         )
 </select>
     <select id="getMyUserReviews" parameterType="String" resultType="UserRecipeDto">
-        select r.* from recipes r where r.recipe_id in(select r.recipe_id from recipe_reviews c where c.user_id=#{user_id})
+        select r.* from recipes r where r.recipe_id in (select r.recipe_id from recipe_reviews c where c.user_id=#{user_id})
     </select>
 <select id="getMyProFavorites" parameterType="String" resultType="BoardDto">
-    select * from chefRecipe c where c.ridx in(select f.ridx from favorites f where f.user_id = #{user_id})
+    select * from chefRecipe c where c.ridx in (select f.ridx from favorites f where f.user_id = #{user_id})
 </select>
 
 

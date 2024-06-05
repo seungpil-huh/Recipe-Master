@@ -34,7 +34,7 @@ public class BoardDetailService {
         boardDetailInter.insertRecipeReview(reviewDto);
     }
 
-    public List<RecipeReviewDto> getReviewsByRecipeId(int recipe_id) {
-        return boardDetailInter.selectReviewsByRecipeId(recipe_id);
+    public List<RecipeReviewDto> getReviewsByRecipeId(int ridx) {
+        return boardDetailInter.selectReviewsByRecipeId(ridx);
     }
 }

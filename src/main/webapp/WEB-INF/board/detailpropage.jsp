@@ -197,11 +197,11 @@
             <div class="container grid gap-8 px-4 md:px-6">
                 <div class="grid gap-4">
                     <h2 class="text-2xl font-bold">리뷰</h2>
-
+<c:if test="${sessionScope.loginok!=null}">
                     <!-- 리뷰 폼 -->
                     <form action="/board/addReview" method="post">
-                        <input type="hidden" name="recipe_id" value="${boarddto.ridx}">
-                        <input type="hidden" name="user_id" value="${sessionScope.user_id}">
+                        <input type="hidden" name="ridx" value="${boarddto.ridx}">
+                        <input type="hidden" name="user_id" value="${sessionScope.loginid}">
                         <div class="mb-4">
                             <label for="rating" class="block text-sm font-medium text-gray-700">평점</label>
                             <select name="rating" id="rating" required class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
@@ -220,6 +220,7 @@
                             리뷰 등록
                         </button>
                     </form>
+</c:if>
 
                     <!-- 리뷰 리스트 -->
                     <c:forEach items="${reviews}" var="review">

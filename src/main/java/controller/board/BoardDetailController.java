@@ -32,16 +32,16 @@ public class BoardDetailController {
 
     @PostMapping("/board/addReview")
     public String addReview(
-            @RequestParam int recipe_id,
+            @RequestParam int ridx,
             @RequestParam String user_id,
             @RequestParam int rating,
             @RequestParam String comment) {
         RecipeReviewDto reviewDto = new RecipeReviewDto();
-        reviewDto.setRecipe_id(recipe_id);
+        reviewDto.setRidx(ridx);
         reviewDto.setUser_id(user_id);
         reviewDto.setRating(rating);
         reviewDto.setComment(comment);
         boardDetailService.insertRecipeReview(reviewDto);
-        return "redirect:/board/detailpro?ridx=" + recipe_id + "&user_id=" + user_id;
+        return "redirect:/board/detailpro?ridx=" + ridx + "&user_id=" + user_id;
     }
 }
