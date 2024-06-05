@@ -86,6 +86,7 @@
                 <input
                         class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         id="name"
+                        name="username"
                         placeholder="이름을 적어주세요"
                         required=""
                 />
@@ -101,6 +102,7 @@
                     <input
                             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                             id="myid"
+                            name="user_id"
                             placeholder="아이디를 입력하세요"
                             required=""
                     />
@@ -119,6 +121,7 @@
                 <input
                         class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         id="passwd"
+                        name="password"
                         required=""
                         type="password"
                 />
@@ -150,6 +153,7 @@
                 <input
                         class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         id="hp"
+                        name="phone_number"
                         pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
                         placeholder="xxx-xxxx-xxxx"
                         required=""
@@ -159,6 +163,7 @@
                 <input
                         type="checkbox"
                         id="chef"
+                        name="is_professional"
                         value="on"
                 />
                 <label
@@ -172,6 +177,7 @@
                 <input
                         type="checkbox"
                         id="admin"
+                        name="is_admin"
                         value="on"
                 />
                 <label

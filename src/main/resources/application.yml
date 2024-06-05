@@ -22,11 +22,7 @@ spring:
     url: jdbc:mysql://db-n9jl6-kr.vpc-pub-cdb.ntruss.com:3306/studydb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: study
     password: bitcamp!@#123
-#fileupload
-  servlet:
-    multipart:
-      max-file-size: 10MB
-      max-request-size: 10MB
+
 #mybatis setting
 mybatis:
   type-aliases-package: data.dto
