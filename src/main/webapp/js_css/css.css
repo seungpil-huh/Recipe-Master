@@ -295,3 +295,9 @@ div.loginForm{
     left: 33%;
     margin-top:50px;
 }
+h1.noReviewAlarm{
+    position: relative;
+    left:40%;
+    margin-top: 50px;
+
+}

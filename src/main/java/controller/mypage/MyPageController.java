@@ -27,6 +27,6 @@ public class MyPageController {
         model.addAttribute("prolist", prolist);
         model.addAttribute("userlist", userlist);
 
-        return "/mypage/myreview";
+        return "mypage/myreview";
     }
 }
