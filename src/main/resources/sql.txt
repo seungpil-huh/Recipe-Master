@@ -12,7 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE recipes (
                          recipe_id INT AUTO_INCREMENT PRIMARY KEY,
-                         user_id INT,
+                         user_id varchar(255),
                          title VARCHAR(255) NOT NULL,
                          description TEXT NOT NULL,
                          ingredients TEXT NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE recipes (
 CREATE TABLE recipe_reviews (
                                 review_id INT AUTO_INCREMENT PRIMARY KEY,
                                 recipe_id INT,
-                                user_id INT,
+                                user_id varchar(20),
                                 rating INT CHECK (rating BETWEEN 1 AND 5),
                                 comment TEXT,
                                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -39,7 +39,7 @@ CREATE TABLE recipe_reviews (
 CREATE TABLE recipe_comments (
                                  comment_id INT AUTO_INCREMENT PRIMARY KEY,
                                  recipe_id INT,
-                                 user_id INT,
+                                 user_id varchar(255),
                                  comment TEXT NOT NULL,
                                  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                                  FOREIGN KEY (recipe_id) REFERENCES recipes(recipe_id),
@@ -48,7 +48,7 @@ CREATE TABLE recipe_comments (
 
 CREATE TABLE favorites (
                            favorite_id INT AUTO_INCREMENT PRIMARY KEY,
-                           user_id INT,
+                           user_id varchar(255),
                            recipe_id INT,
                            FOREIGN KEY (user_id) REFERENCES users(num),
                            FOREIGN KEY (recipe_id) REFERENCES recipes(recipe_id),

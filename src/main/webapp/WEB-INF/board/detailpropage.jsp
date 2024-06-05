@@ -197,191 +197,55 @@
             <div class="container grid gap-8 px-4 md:px-6">
                 <div class="grid gap-4">
                     <h2 class="text-2xl font-bold">리뷰</h2>
-                    <div class="grid gap-6">
+
+                    <!-- 리뷰 폼 -->
+                    <form action="/board/addReview" method="post">
+                        <input type="hidden" name="recipe_id" value="${boarddto.ridx}">
+                        <input type="hidden" name="user_id" value="${sessionScope.user_id}">
+                        <div class="mb-4">
+                            <label for="rating" class="block text-sm font-medium text-gray-700">평점</label>
+                            <select name="rating" id="rating" required class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label for="comment" class="block text-sm font-medium text-gray-700">댓글</label>
+                            <textarea name="comment" id="comment" rows="4" required class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+                        </div>
+                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            리뷰 등록
+                        </button>
+                    </form>
+
+                    <!-- 리뷰 리스트 -->
+                    <c:forEach items="${reviews}" var="review">
                         <div class="bg-white dark:bg-gray-950 rounded-lg p-4 shadow">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-2">
-                                    <div class="rounded-full bg-primary px-2 py-1 text-xs font-medium text-gray-50">5</div>
+                                    <div class="rounded-full bg-primary px-2 py-1 text-xs font-medium text-gray-50">${review.rating}</div>
                                     <div class="flex items-center gap-0.5">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="w-5 h-5 fill-primary"
-                                        >
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="w-5 h-5 fill-primary"
-                                        >
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="w-5 h-5 fill-primary"
-                                        >
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="w-5 h-5 fill-primary"
-                                        >
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="w-5 h-5 fill-primary"
-                                        >
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
+                                        <c:forEach begin="1" end="${review.rating}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 fill-primary">
+                                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                            </svg>
+                                        </c:forEach>
                                     </div>
                                 </div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">2 days ago</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">${review.created_at}</p>
                             </div>
                             <p class="mt-2 text-gray-500 dark:text-gray-400">
-                                This Spaghetti Bolognese recipe is absolutely delicious! The sauce is so rich and flavorful, and the
-                                spaghetti is cooked to perfection. I'll definitely be making this again.
+                                    ${review.comment}
                             </p>
                             <div class="mt-2 flex items-center gap-2">
-              <span
-                      class="relative flex shrink-0 overflow-hidden rounded-full h-8 w-8"
-                      src="/placeholder-avatar.svg"
-                      alt="User Avatar"
-              ></span>
-                                <span class="text-sm font-medium">John Doe</span>
+                                <span class="relative flex shrink-0 overflow-hidden rounded-full h-8 w-8" src="/placeholder-avatar.svg" alt="User Avatar"></span>
+                                <span class="text-sm font-medium">${review.user_id}</span>
                             </div>
                         </div>
-                        <div class="bg-white dark:bg-gray-950 rounded-lg p-4 shadow">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <div class="rounded-full bg-primary px-2 py-1 text-xs font-medium text-gray-50">4</div>
-                                    <div class="flex items-center gap-0.5">
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="w-5 h-5 fill-primary"
-                                        >
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="w-5 h-5 fill-primary"
-                                        >
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="w-5 h-5 fill-primary"
-                                        >
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="w-5 h-5 fill-primary"
-                                        >
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                        <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                class="w-5 h-5 fill-muted stroke-muted-foreground"
-                                        >
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">1 week ago</p>
-                            </div>
-                            <p class="mt-2 text-gray-500 dark:text-gray-400">
-                                The Spaghetti Bolognese was really good, but I found the sauce to be a bit too thick for my liking.
-                                Overall, it's a great recipe that I'll probably make again with a few tweaks. I found the sauce
-                            </p>
-                            <div class="mt-2 flex items-center gap-2">
-              <span
-                      class="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full"
-                      src="/placeholder-avatar.svg"
-                      alt="User Avatar"
-              ></span>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </section>
