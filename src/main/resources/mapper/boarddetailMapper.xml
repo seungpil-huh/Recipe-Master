@@ -7,4 +7,12 @@
  <select id="selectOneUserRecipe" parameterType="Map" resultType="UserRecipeDto">
   select r.*,(select count(*) from favorites f where r.recipe_id=f.recipe_id and #{user_id}=f.user_id) as favorites from recipes r where r.recipe_id=#{recipe_id}
  </select>
+ <insert id="insertRecipeReview" parameterType="data.dto.RecipeReviewDto">
+  INSERT INTO recipe_reviews (recipe_id, user_id, rating, comment, created_at)
+  VALUES (#{recipe_id}, #{user_id}, #{rating}, #{comment}, NOW())
+ </insert>
+
+ <select id="selectReviewsByRecipeId" parameterType="int" resultType="data.dto.RecipeReviewDto">
+  SELECT * FROM recipe_reviews WHERE recipe_id = #{recipe_id} ORDER BY created_at DESC
+ </select>
 </mapper>
