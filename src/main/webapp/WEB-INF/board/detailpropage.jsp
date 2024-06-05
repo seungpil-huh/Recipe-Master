@@ -197,36 +197,38 @@
             <div class="container grid gap-8 px-4 md:px-6">
                 <div class="grid gap-4">
                     <h2 class="text-2xl font-bold">리뷰</h2>
-<c:if test="${sessionScope.loginok!=null}">
-                    <!-- 리뷰 폼 -->
-                    <form action="/board/addReview" method="post">
-                        <input type="hidden" name="ridx" value="${boarddto.ridx}">
-                        <input type="hidden" name="user_id" value="${sessionScope.loginid}">
-                        <div class="mb-4">
-                            <label for="rating" class="block text-sm font-medium text-gray-700">평점</label>
-                            <select name="rating" id="rating" required class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                        <div class="mb-4">
-                            <label for="comment" class="block text-sm font-medium text-gray-700">댓글</label>
-                            <textarea name="comment" id="comment" rows="4" required class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
-                        </div>
-                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            리뷰 등록
-                        </button>
-                    </form>
-</c:if>
+                    <c:if test="${sessionScope.loginok!=null}">
+                        <!-- 리뷰 폼 -->
+                        <form action="/board/addReview" method="post">
+                            <input type="hidden" name="ridx" value="${boarddto.ridx}">
+                            <input type="hidden" name="user_id" value="${sessionScope.loginid}">
+                            <div class="mb-4">
+                                <label for="rating" class="block text-sm font-medium text-gray-700">평점</label>
+                                <select name="rating" id="rating" required class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="comment" class="block text-sm font-medium text-gray-700">댓글</label>
+                                <textarea name="comment" id="comment" rows="4" required class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+                            </div>
+                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                리뷰 등록
+                            </button>
+                        </form>
+                    </c:if>
 
                     <!-- 리뷰 리스트 -->
                     <c:forEach items="${reviews}" var="review">
                         <div class="bg-white dark:bg-gray-950 rounded-lg p-4 shadow">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-2">
+<%--                                    <span class="relative flex shrink-0 overflow-hidden rounded-full h-8 w-8" src="/placeholder-avatar.svg" alt="User Avatar"></span>--%>
+                                    <span class="text-sm font-medium">${review.user_id}</span>
                                     <div class="rounded-full bg-primary px-2 py-1 text-xs font-medium text-gray-50">${review.rating}</div>
                                     <div class="flex items-center gap-0.5">
                                         <c:forEach begin="1" end="${review.rating}">
@@ -241,10 +243,6 @@
                             <p class="mt-2 text-gray-500 dark:text-gray-400">
                                     ${review.comment}
                             </p>
-                            <div class="mt-2 flex items-center gap-2">
-                                <span class="relative flex shrink-0 overflow-hidden rounded-full h-8 w-8" src="/placeholder-avatar.svg" alt="User Avatar"></span>
-                                <span class="text-sm font-medium">${review.user_id}</span>
-                            </div>
                         </div>
                     </c:forEach>
                 </div>
