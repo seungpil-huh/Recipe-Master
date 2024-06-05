@@ -19,7 +19,9 @@
     <select id="getMyUserReviews" parameterType="String" resultType="UserRecipeDto">
         select r.* from recipes r where r.recipe_id in(select r.recipe_id from recipe_reviews c where c.user_id=#{user_id})
     </select>
-
+<select id="getMyProFavorites" parameterType="String" resultType="BoardDto">
+    select * from chefRecipe c where c.ridx in(select f.ridx from favorites f where f.user_id = #{user_id})
+</select>
 
 
 </mapper>

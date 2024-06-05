@@ -307,3 +307,8 @@ div.loginForm{
     left: 38%;
     margin-top:50px;
 }
+h1.noReviewAlarm{
+    margin-top: 80px;
+    margin-left: 100px;
+    font-size: 80px;
+}

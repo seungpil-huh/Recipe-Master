@@ -10,4 +10,5 @@ import java.util.List;
 public interface MyPageInter {
     public List<BoardDto> getMyProReviews(String user_id);
     public List<UserRecipeDto> getMyUserReviews(String user_id);
+    public List<BoardDto> getMyProFavorites(String user_id);
 }
