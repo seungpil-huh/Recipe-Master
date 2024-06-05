@@ -22,6 +22,11 @@
 <select id="getMyProFavorites" parameterType="String" resultType="BoardDto">
     select * from chefRecipe c where c.ridx in (select f.ridx from favorites f where f.user_id = #{user_id})
 </select>
-
+<insert id="addFavorites" parameterType="Map">
+    insert into favorites (user_id,ridx) values (#{user_id},#{ridx})
+</insert>
+    <delete id="deleteFavorites" parameterType="Map">
+        delete from favorites where user_id=#{user_id} and ridx=#{ridx}
+    </delete>
 
 </mapper>
