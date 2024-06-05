@@ -27,6 +27,15 @@ public class MyPageController {
         model.addAttribute("prolist", prolist);
         model.addAttribute("userlist", userlist);
 
-        return "/mypage/myreview";
+        return "mypage/myreview";
+    }
+
+    @GetMapping("/myfavorites")
+    public String myFavorites(
+            @RequestParam String user_id,
+            Model model) {
+        List<BoardDto> prolist = myPageService.getMyProFavorites(user_id);
+        model.addAttribute("prolist", prolist);
+        return "mypage/myfavorites";
     }
 }

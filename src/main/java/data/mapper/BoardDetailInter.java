@@ -13,5 +13,5 @@ public interface BoardDetailInter {
     public BoardDto selectOneProRecipe(Map<String,Object> map);
     public UserRecipeDto selectOneUserRecipe(Map<String,Object> map);
     public void insertRecipeReview(RecipeReviewDto reviewDto);
-    public List<RecipeReviewDto> selectReviewsByRecipeId(int recipe_id);
+    public List<RecipeReviewDto> selectReviewsByRecipeId(int ridx);
 }

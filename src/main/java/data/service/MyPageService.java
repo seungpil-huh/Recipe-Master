@@ -20,4 +20,7 @@ public class MyPageService {
     public List<UserRecipeDto> getMyUserReviews(String user_id){
         return myPageInter.getMyUserReviews(user_id);
     }
+    public List<BoardDto> getMyProFavorites(String user_id){
+        return myPageInter.getMyProFavorites(user_id);
+    }
 }

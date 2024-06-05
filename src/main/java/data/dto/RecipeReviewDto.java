@@ -13,7 +13,7 @@ import org.apache.ibatis.type.Alias;
 @Builder
 public class RecipeReviewDto {
     private int review_id;
-    private int recipe_id;
+    private int ridx;
     private String user_id;
     private int rating;
     private String comment;
