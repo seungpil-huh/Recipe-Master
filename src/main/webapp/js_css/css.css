@@ -312,3 +312,12 @@ h1.noReviewAlarm{
     margin-left: 100px;
     font-size: 80px;
 }
+.loginedHeart{
+    cursor: pointer;
+    transition: 0.5s;
+}
+.loginedHeartFilled{
+    cursor: pointer;
+    color: red;
+    transition: 0.5s;
+}

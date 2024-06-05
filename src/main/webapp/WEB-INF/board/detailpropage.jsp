@@ -2,16 +2,73 @@
          pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="root" value="<%=request.getContextPath()%>"/>
+<script>
+    function favoriteCheck(){
+        let favoriteCheck = ${boarddto.favorites};
 
+        if(favoriteCheck){
+            $("span.favoriteCheck").html(`<i class='bx bxs-heart loginedHeartFilled' id="favoriteHeart" style="font-size: 50px;"></i>`);
+        }else{
+            $("span.favoriteCheck").html(`<i class='bx bx-heart loginedHeart' id="favoriteHeart" style="font-size: 50px;"></i>`);
+        }
+    }
+$(function (){
+    let user_id="${sessionScope.loginid}";
+    let ridx="${boarddto.ridx}";
+
+    favoriteCheck();
+
+        $(".notloginedheart").click(function (){
+            alert("로그인 후 찜 가능합니다");
+        });
+    $(".loginedHeart").on("click",function (){
+        console.log("loginedHeart")
+        $.ajax({
+            type:"get",
+            url:"${root}/mypage/favoriteAdd",
+            data:{"user_id":user_id, "ridx":ridx},
+            dataType: "json",
+            success:function (){
+                $("#favoriteHeart").removeClass().addClass("bx bxs-heart loginedHeartFilled");
+            }
+        });
+    });
+    $(".loginedHeartFilled").on("click",function (){
+        console.log("filled");
+        $.ajax({
+            type: "get",
+            url:"${root}/mypage/favoriteDelete",
+            data: {"user_id":user_id, "ridx":ridx},
+            dataType: "json",
+            success:function (){
+                $("#favoriteHeart").removeClass().addClass("bx bx-heart loginedHeart");
+            }
+        })
+    });
+
+});
+
+
+
+
+</script>
 <div style="margin-left: 80px">
     <div class="w-full">
         <section class="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
             <div class="container grid items-center justify-center gap-8 px-4 md:px-6">
                 <div class="grid gap-4">
-                    <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl"></h1>
-                    <p class="text-2xl font-bold">
-                        ${boarddto.RCP_NM}
-                    </p>
+                    <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl">${boarddto.RCP_NM}</h1>
+                    <div>
+                    <c:if test="${sessionScope.loginok!='yes'}">
+                        <i class='bx bx-heart notloginedheart' style="font-size: 50px"></i>
+                    </c:if>
+                    <c:if test="${sessionScope.loginok=='yes'}">
+                        <span class="favoriteCheck">
+
+                        </span>
+                    </c:if>
+                    </div>
                 </div>
                 <img
                         src="${boarddto.ATT_FILE_NO_MK}"

@@ -70,6 +70,7 @@
 
                     $.each(data.prolist, function (idx, ele) {
                         if (count<=8 && !appendedRidx.has(ele.ridx)) {
+                            console.log(ele.favorites);
                             s += `
                     <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
                     <input type="hidden" value="\${ele.ridx}" name="ridx">
@@ -83,11 +84,12 @@
                 />
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">\${ele.rcp_NM}</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.info_ENG} kcal</p>
-                    <c:if test="\${ele.favorites}">
-                    <i class='bx bxs-purchase-tag'></i>
-                    </c:if>
-                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.info_ENG} kcal</p>`
+
+                    if(ele.favorites) {
+                        s+=`<i class='bx bxs-purchase-tag'></i>`;
+                    }
+                    s+=`<button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
                     onclick="location.href='/board/detailpro?ridx=\${ele.ridx}&user_id=\${myid}'">
                         상세 보기
                     </button>
@@ -100,7 +102,9 @@
                     });
 
                 $.each(data.userlist,function (idx,ele){
+
                     if(!appendedRecipeIds.has(ele.recipe_id)){
+                        console.log(ele.favorites);
                     s+=`
                         <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
                         <input type="hidden" value="\${ele.recipe_id}" name="recipe_id">
@@ -114,11 +118,11 @@
                 />
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">\${ele.title}</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.description}</p>
-                    <c:if test="\${ele.favorites}">
-                    <i class='bx bxs-purchase-tag'></i>
-                    </c:if>
-                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.description}</p>`
+                        if(ele.favorites) {
+                           s+=`<i class='bx bxs-purchase-tag'></i>`;
+                        }
+                    s+=`<button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
                     onclick="location.href='./detailuser?recipe_id=\${ele.recipe_id}&user_id=\${myid}'">
                         상세 보기
                     </button>
@@ -186,6 +190,7 @@
 
                 $.each( data.prolist,function (idx,ele){
                     if(count<=8 &&!appendedRidx.has(ele.ridx)){
+                        console.log(ele.favorites);
 
                     s+=`
                     <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
@@ -200,11 +205,11 @@
                 />
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">\${ele.rcp_NM}</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.info_ENG} kcal</p>
-                    <c:if test="\${ele.favorites}">
-                    <i class='bx bxs-purchase-tag'></i>
-                    </c:if>
-                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.info_ENG} kcal</p>`
+                        if(ele.favorites) {
+                            s+=`<i class='bx bxs-purchase-tag'></i>`;
+                        }
+                    s+=`<button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
                     onclick="location.href='/board/detailpro?ridx=\${ele.ridx}&user_id=\${myid}'">
                         상세 보기
                     </button>
@@ -230,11 +235,11 @@
                 />
                 <div class="p-4">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">\${ele.title}</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.description}</p>
-                    <c:if test="\${ele.favorites}">
-                    <i class='bx bxs-purchase-tag'></i>
-                    </c:if>
-                    <button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">\${ele.description}</p>`
+                        if(ele.favorites) {
+                            s+=`<i class='bx bxs-purchase-tag'></i>`;
+                        }
+                    s+=`<button class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-4"
                     onclick="location.href='./detailuser?recipe_id=\${ele.recipe_id}&user_id=\${myid}'">
                         상세 보기
                     </button>
