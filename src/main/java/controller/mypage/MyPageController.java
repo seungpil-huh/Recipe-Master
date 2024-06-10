@@ -55,4 +55,8 @@ public class MyPageController {
     ){
         return myPageService.deleteFavorites(user_id, ridx);
     }
+    @GetMapping("/update")
+    public String updateForm(){
+        return "mypage/update";
+    }
 }
