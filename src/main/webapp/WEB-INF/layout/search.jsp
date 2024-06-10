@@ -13,7 +13,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>레시피 마스터</title>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 </head>
 <body>
